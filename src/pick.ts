@@ -33,7 +33,9 @@
 
 /* _____________ 你的代码 _____________ */
 
-type MyPick<T, K> = any
+type MyPick<T, K extends keyof T> = {
+    [p in K]:T[p]
+}
 
 /* _____________ 测试用例 _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
